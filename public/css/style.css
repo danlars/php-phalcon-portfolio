@@ -1,0 +1,19 @@
+body {
+  overflow-y: scroll; }
+
+#taskLinks a {
+  font-size: 130%;
+  margin-left: 20px; }
+  #taskLinks a:first-child {
+    margin-left: 0; }
+
+ul.pagination {
+  text-align: right; }
+  ul.pagination li {
+    float: none;
+    display: inline-block; }
+
+.alert-box h1, .alert-box h2, .alert-box h3, .alert-box h4, .alert-box h5, .alert-box h6 {
+  color: #FFF; }
+
+/*# sourceMappingURL=style.css.map */

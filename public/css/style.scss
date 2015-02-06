@@ -1,0 +1,29 @@
+body{
+  overflow-y: scroll;
+}
+
+#taskLinks {
+  a {
+    font-size: 130%;
+    margin-left: 20px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+}
+
+ul.pagination{
+  text-align: right;
+
+  li{
+    float:none;
+    display: inline-block;
+  }
+}
+
+.alert-box{
+  h1, h2, h3, h4, h5, h6 {
+    color: #FFF;
+  }
+}
