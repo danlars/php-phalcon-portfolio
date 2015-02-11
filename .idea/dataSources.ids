@@ -1,58 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
   <data-source name="MySQL - portfolio@localhost" uuid="aabd7f4c-f7c9-41f2-ae6f-63984ebfba96">
-    <database-info product="MySQL" version="5.5.41-0ubuntu0.14.04.1" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.34 ( Revision: jess.balint@oracle.com-20141014163213-wqbwpf1ok2kvo1om )">
-      <extra-name-characters>#@</extra-name-characters>
-      <identifier-quote-string>`</identifier-quote-string>
-    </database-info>
-    <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
-    <schema name="" catalog="portfolio"/>
-    <table name="feedback" schema="" catalog="portfolio" type="TABLE">
-      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="fullname" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
-      <column name="email" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
-      <column name="tlf" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
-      <column name="title" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
-      <column name="txt" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
-      <primary-key name="PRIMARY" columns="id"/>
-      <index name="id_UNIQUE" unique="true" columns="id"/>
-    </table>
-    <table name="news" schema="" catalog="portfolio" type="TABLE">
-      <column name="newsID" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="title" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
-      <column name="txt" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
-      <column name="img" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
-      <column name="newsTitleID" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <primary-key name="PRIMARY" columns="newsID"/>
-      <foreign-key name="fk_news_1" columns="newsTitleID" ref-table="newsTitle" ref-schema="" ref-catalog="portfolio" ref-columns="titleID" update-rule="3" delete-rule="3" deferrability="2"/>
-      <index name="img_UNIQUE" unique="true" columns="img"/>
-      <index name="newsID_UNIQUE" unique="true" columns="newsID"/>
-      <index name="title_UNIQUE" unique="true" columns="title"/>
-      <index name="newsTitleID_INDEX" unique="false" columns="newsTitleID"/>
-    </table>
-    <table name="newsTitle" schema="" catalog="portfolio" type="TABLE">
-      <column name="titleID" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="title" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
-      <primary-key name="PRIMARY" columns="titleID"/>
-      <exported-key name="fk_news_1" table="news" schema="" catalog="portfolio" columns="newsTitleID"/>
-      <index name="title_UNIQUE" unique="true" columns="title"/>
-      <index name="titleID_UNIQUE" unique="true" columns="titleID"/>
-      <index name="title_INDEX" unique="false" columns="title"/>
-    </table>
-    <table name="profilePage" schema="" catalog="portfolio" type="TABLE">
-      <column name="profileID" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="txt" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
-      <column name="img" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <primary-key name="PRIMARY" columns="profileID"/>
-      <exported-key name="fk_profileTitles_1" table="profileTitles" schema="" catalog="portfolio" columns="profilePageID_FK"/>
-      <index name="img_UNIQUE" unique="true" columns="img"/>
-    </table>
-    <table name="profileTitles" schema="" catalog="portfolio" type="TABLE">
-      <column name="profilePageID_FK" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="title" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
-      <foreign-key name="fk_profileTitles_1" columns="profilePageID_FK" ref-table="profilePage" ref-schema="" ref-catalog="portfolio" ref-columns="profileID" update-rule="0" delete-rule="0" deferrability="2"/>
-      <index name="title_UNIQUE" unique="true" columns="title"/>
-      <index name="fk_profileTitles_1_idx" unique="false" columns="profilePageID_FK"/>
-    </table>
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
   </data-source>
 </component>

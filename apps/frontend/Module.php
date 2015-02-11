@@ -14,7 +14,6 @@ use Phalcon\Loader,
     Phalcon\Mvc\ModuleDefinitionInterface,
     Phalcon\Events\Manager as EventsManager;
 use Portfolio\Security\NotFoundPlugin;
-use Portfolio\Security\Security;
 
 class Module implements ModuleDefinitionInterface{
 
@@ -43,7 +42,6 @@ class Module implements ModuleDefinitionInterface{
             $eventsManager = new EventsManager;
             $dispatcher = new Dispatcher;
 
-            $eventsManager->attach('dispatch:beforeDispatch', new Security);
             /**
              * Handle exceptions and not-found exceptions using NotFoundPlugin
              */

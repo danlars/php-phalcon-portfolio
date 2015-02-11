@@ -17,4 +17,8 @@ class Session extends Model{
     public $mail;
 
     public $password;
+
+    public $name;
+
+    public $active;
 }

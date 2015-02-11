@@ -1,12 +1,16 @@
 
 <div class="row">
-    <div class="large-12 columns">
-        <div id="taskLinks" class="right">
-            {% for titlePage in newsTitle %}
+
+    <dl class="sub-nav"> <dt>Kategorier:</dt>
+        <dd {% if pageID == 0 %} class="active" {% endif %} >{{ link_to('tasks/index/', "Alle") }}</dd>
+
+        {% for titlePage in newsTitle %}
+            <dd {% if titlePage.titleID == pageID %} class="active" {% endif %} >
                 {{ link_to('tasks/index/' ~ titlePage.titleID, titlePage.title) }}
-            {% endfor %}
-        </div>
-    </div>
+            </dd>
+        {% endfor %}
+
+    </dl>
 </div>
 
 {% for item in page.items %}

@@ -1,12 +1,16 @@
 
 <div class="row">
-    <div class="large-12 columns">
-        <div id="taskLinks" class="right">
-            <?php foreach ($newsTitle as $titlePage) { ?>
+
+    <dl class="sub-nav"> <dt>Kategorier:</dt>
+        <dd <?php if ($pageID == 0) { ?> class="active" <?php } ?> ><?php echo $this->tag->linkTo(array('tasks/index/', 'Alle')); ?></dd>
+
+        <?php foreach ($newsTitle as $titlePage) { ?>
+            <dd <?php if ($titlePage->titleID == $pageID) { ?> class="active" <?php } ?> >
                 <?php echo $this->tag->linkTo(array('tasks/index/' . $titlePage->titleID, $titlePage->title)); ?>
-            <?php } ?>
-        </div>
-    </div>
+            </dd>
+        <?php } ?>
+
+    </dl>
 </div>
 
 <?php $v118271808908843380361iterator = $page->items; $v118271808908843380361incr = 0; $v118271808908843380361loop = new stdClass(); $v118271808908843380361loop->length = count($v118271808908843380361iterator); $v118271808908843380361loop->index = 1; $v118271808908843380361loop->index0 = 1; $v118271808908843380361loop->revindex = $v118271808908843380361loop->length; $v118271808908843380361loop->revindex0 = $v118271808908843380361loop->length - 1; ?><?php foreach ($v118271808908843380361iterator as $item) { ?><?php $v118271808908843380361loop->first = ($v118271808908843380361incr == 0); $v118271808908843380361loop->index = $v118271808908843380361incr + 1; $v118271808908843380361loop->index0 = $v118271808908843380361incr; $v118271808908843380361loop->revindex = $v118271808908843380361loop->length - $v118271808908843380361incr; $v118271808908843380361loop->revindex0 = $v118271808908843380361loop->length - ($v118271808908843380361incr + 1); $v118271808908843380361loop->last = ($v118271808908843380361incr == ($v118271808908843380361loop->length - 1)); ?>

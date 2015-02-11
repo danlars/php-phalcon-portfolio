@@ -46,20 +46,20 @@ class Security extends Plugin
 
             //Private area resources
             $privateResources = array(
-                'frontpanel'    => array('index')
+                'frontpanel'    => array('index'),
+                'about'         => array('index'),
+                'tasks'         => array('index', 'article'),
+                'contact'       => array('index', 'send')
             );
+
             foreach ($privateResources as $resource => $actions) {
                 $acl->addResource(new Resource($resource), $actions);
             }
 
             //Public area resources
             $publicResources = array(
-                'index'         => array('index'),
-                'about'         => array('index'),
                 'errors'        => array('p404', 'p500'),
-                'tasks'         => array('index', 'article'),
-                'contact'       => array('index', 'send'),
-                'login'         => array('index')
+                'login'         => array('index', 'end')
             );
 
             foreach ($publicResources as $resource => $actions) {

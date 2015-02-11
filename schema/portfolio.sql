@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 05, 2015 at 09:40 PM
+-- Generation Time: Feb 11, 2015 at 10:42 AM
 -- Server version: 5.5.41-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.5
 
@@ -30,20 +30,34 @@ CREATE TABLE IF NOT EXISTS `feedback` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `fullname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `tlf` int(11) DEFAULT NULL,
+  `tlf` int(12) DEFAULT NULL,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `txt` text COLLATE utf8_unicode_ci NOT NULL,
+  `dato` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='feedback fra brugere' AUTO_INCREMENT=7 ;
+  UNIQUE KEY `id_UNIQUE` (`id`),
+  KEY `index3` (`dato`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='feedback fra brugere' AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `feedback`
 --
 
-INSERT INTO `feedback` (`id`, `fullname`, `email`, `tlf`, `title`, `txt`) VALUES
-(5, 'Daniel Larsen æøå', 'daniellarsen725@hotmail.com', 88888888, 'æøå', 'æøå'),
-(6, 'Daniel Larsen æøå', 'daniellarsen725@hotmail.com', 0, 'Dette er en test2', 'læp');
+INSERT INTO `feedback` (`id`, `fullname`, `email`, `tlf`, `title`, `txt`, `dato`) VALUES
+(5, 'Daniel Larsen æøå', 'daniellarsen725@hotmail.com', 88888888, 'æøå', 'æøå', '0000-00-00 00:00:00'),
+(6, 'Daniel Larsen æøå', 'daniellarsen725@hotmail.com', 0, 'Dette er en test2', 'læp', '0000-00-00 00:00:00'),
+(7, 'Daniel Larsen', 'daniellarsen725@yahoo.dk', 0, 'damn', 'Test\r\n', '2015-02-10 16:51:25');
+
+--
+-- Triggers `feedback`
+--
+DROP TRIGGER IF EXISTS `feedback_BEFORE_INSERT`;
+DELIMITER //
+CREATE TRIGGER `feedback_BEFORE_INSERT` BEFORE INSERT ON `feedback`
+ FOR EACH ROW begin SET NEW.dato =  now();
+END
+//
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -105,8 +119,10 @@ INSERT INTO `news_title` (`titleID`, `title`) VALUES
 
 CREATE TABLE IF NOT EXISTS `session` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `mail` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `mail` varchar(70) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `name` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
+  `active` char(1) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `mail_UNIQUE` (`mail`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
@@ -115,8 +131,8 @@ CREATE TABLE IF NOT EXISTS `session` (
 -- Dumping data for table `session`
 --
 
-INSERT INTO `session` (`id`, `mail`, `password`) VALUES
-(1, 'daniellarsen725@hotmail.com', '$2a$08$wENtglmcOort228xazblAOaYtLDNBIs3U.J6PdctfvKfB1SVXuApa');
+INSERT INTO `session` (`id`, `mail`, `password`, `name`, `active`) VALUES
+(1, 'daniellarsen725@hotmail.com', '$2a$08$AUiQpA8VJzEyoNxrzYhTMeFOCnRcYDi7ykJGem7aeVGOYsed6sWve', 'Daniel Larsen', 'Y');
 
 --
 -- Constraints for dumped tables

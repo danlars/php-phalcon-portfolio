@@ -8,7 +8,6 @@
 namespace Portfolio\Frontend\Controllers;
 
 use Phalcon\Paginator\Adapter\Model as Paginator;
-//
 use Portfolio\Models\News as News;
 use Portfolio\Models\NewsTitle as NewsTitle;
 
@@ -39,7 +38,7 @@ class tasksController extends ControllerBase{
 
         $this->view->newsTitle = NewsTitle::find();
         $this->view->page = $paginator->getPaginate();
-        $this->view->pageID = $idParts[0];
+        $this->view->pageID = (int)$idParts[0];
     }
 
     public function articleAction($id = 0){

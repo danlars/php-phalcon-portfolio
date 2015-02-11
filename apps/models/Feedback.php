@@ -11,15 +11,17 @@ use Phalcon\Mvc\Model;
 
 class Feedback extends Model{
 
-    public $id;
+    public $Id;
 
     public $FullName;
 
     public $Email;
 
-    public $tlf;
+    public $Tlf;
 
-    public $title;
+    public $Title;
 
-    public $txt;
+    public $Txt;
+
+    public $Dato;
 }

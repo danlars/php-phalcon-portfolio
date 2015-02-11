@@ -21,23 +21,51 @@ class LoginController extends impressive{
         $this->view->form = new LoginForm;
     }
 
+    private function _registerSession(Session $user)
+    {
+        $this->session->set('auth', array(
+            'id' => $user->id,
+            'name' => $user->name
+        ));
+    }
+
     public function validateAction(){
         if($this->request->isPost()) {
             if ($this->security->checkToken()) {
                 $email = $this->request->getPost('email');
                 $password = $this->request->getPost('password');
-
                 $userExist = Session::findFirst(Array('mail' => $email));
 
                 if ($userExist) {
-                    if ($this->security->checkHash($password, $userExist->password)) {
-                        $this->flash->success('Velkommen ' . $email);//The password is valid
-                    }
-                }
-
-                $this->flash->error('Forkert Email/Password' );
-                return $this->response->redirect('admin/login/index');
+                    if($userExist->active == "Y" && $this->security->checkHash($password, $userExist->password)) {
+                        $this->_registerSession($userExist);
+                        $this->flash->success('Velkommen ' . $userExist->name); //The password is valid
+                        return $this->response->redirect('admin/frontpanel/index');
+                    }else
+                        $this->flash->error('Din bruger er ikke længere aktiv. Kontakt administratoren for mere info');
+                }else
+                    $this->flash->error('Forkert Email/Password');
             }
+            return $this->response->redirect('admin/login/index');
         }
+        return $this->dispatcher->forward(
+            array(
+                'controller' => 'login',
+                'action' => 'index'
+            )
+        );
     }
+
+    /**
+     * Finishes the active session redirecting to the index
+     *
+     * @return unknown
+     */
+    public function endAction()
+    {
+        $this->session->remove('auth');
+        $this->flash->success('Tak for denne gang admin!');
+        return $this->response->redirect('index/index');
+    }
+
 }
