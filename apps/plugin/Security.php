@@ -40,6 +40,7 @@ class Security extends Plugin
                 'users'  => new Role('Users'),
                 'guests' => new Role('Guests')
             );
+
             foreach ($roles as $role) {
                 $acl->addRole($role);
             }
@@ -93,14 +94,14 @@ class Security extends Plugin
      * @param Event $event
      * @param Dispatcher $dispatcher
      */
+
     public function beforeDispatch(Event $event, Dispatcher $dispatcher)
     {
         $auth = $this->session->get('auth');
-        if (!$auth){
+        if (!$auth)
             $role = 'Guests';
-        } else {
+         else
             $role = 'Users';
-        }
 
         $controller = $dispatcher->getControllerName();
         $action = $dispatcher->getActionName();
