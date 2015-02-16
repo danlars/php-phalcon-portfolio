@@ -16,4 +16,22 @@ ul.pagination {
 .alert-box h1, .alert-box h2, .alert-box h3, .alert-box h4, .alert-box h5, .alert-box h6 {
   color: #FFF; }
 
+.btnLink {
+  color: #008cba;
+  line-height: inherit;
+  border: none;
+  background: none;
+  cursor: pointer; }
+  .btnLink:hover, .btnLink:focus {
+    color: #0078a0; }
+
+input[type="checkbox"].pushChckBtn {
+  margin-top: 10px; }
+
+.linkTxt {
+  cursor: pointer; }
+
+.hideTxt {
+  display: none; }
+
 /*# sourceMappingURL=style.css.map */

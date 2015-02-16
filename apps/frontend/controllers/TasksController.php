@@ -43,11 +43,11 @@ class tasksController extends ControllerBase{
 
     public function articleAction($id = 0){
         $query = News::query()
-            ->columns(array('newsID', 'title', 'img'))
+            ->columns(array("newsID", "title", "img"))
             ->where("newsID != :id:")
             ->bind(array("id" => $id))
             ->limit(4)
-            ->orderBy('rand()')
+            ->orderBy("rand()")
             ->execute();
 
         $this->view->articles = $query;

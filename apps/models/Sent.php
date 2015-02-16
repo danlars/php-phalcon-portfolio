@@ -2,14 +2,14 @@
 /**
  * Created by PhpStorm.
  * User: daniel
- * Date: 1/22/15
- * Time: 12:15 PM
+ * Date: 2/13/15
+ * Time: 10:35 PM
  */
-namespace Portfolio\Models;
 
+namespace Portfolio\Models;
 use Phalcon\Mvc\Model;
 
-class Feedback extends Model{
+class Sent extends Model{
 
     public $Id;
 
@@ -17,15 +17,9 @@ class Feedback extends Model{
 
     public $Email;
 
-    public $Tlf;
-
     public $Title;
 
     public $Txt;
 
     public $Dato;
-
-    public $Status;
-
-    public $DeleteDato;
 }

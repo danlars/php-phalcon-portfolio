@@ -11,13 +11,13 @@ use \Phalcon\Mvc\Model;
 
 class News extends Model{
 
-    public $newsID;
+    public $NewsID;
 
-    public $title;
+    public $Title;
 
-    public $txt;
+    public $Txt;
 
-    public $img;
+    public $Img;
 
-    public $newsTitleID;
+    public $NewsTitleID;
 }

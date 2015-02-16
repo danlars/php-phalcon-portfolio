@@ -15,6 +15,14 @@
 <?php echo $this->tag->javascriptInclude('js/foundation.min.js'); ?>
 <script>
     $(document).foundation();
+    $(".linkTxt").on('click', function(){
+        $(this).closest(".large-12").find(".hideTxt").toggle();
+    });
+
+    $(".notRead").on('click', function(){
+        $.get('editMsg/' + $(this).attr('data'));
+        $(this).contents().unwrap()
+    });
 </script>
 </body>
 </html>

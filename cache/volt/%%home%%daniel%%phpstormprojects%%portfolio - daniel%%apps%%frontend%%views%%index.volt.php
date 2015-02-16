@@ -11,7 +11,6 @@
 </head>
 <body>
 <?php echo $this->getContent(); ?>
-<?php echo $this->tag->javascriptInclude('js/vendor/jquery.js'); ?>
 <?php echo $this->tag->javascriptInclude('js/foundation.min.js'); ?>
 <script>
     $(document).foundation();

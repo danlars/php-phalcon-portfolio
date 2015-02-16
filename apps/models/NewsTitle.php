@@ -11,8 +11,8 @@ use \Phalcon\Mvc\Model;
 
 class NewsTitle extends Model{
 
-    public $titleID;
+    public $TitleID;
 
-    public $title;
+    public $Title;
 
 }

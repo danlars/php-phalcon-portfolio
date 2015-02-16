@@ -50,7 +50,7 @@ class Security extends Plugin
                 'frontpanel'    => array('index'),
                 'about'         => array('index'),
                 'tasks'         => array('index', 'article'),
-                'contact'       => array('index', 'send')
+                'contact'       => array('index', 'send', 'sentMsgs', 'delMsgs', 'editMsg', 'moveToDelete')
             );
 
             foreach ($privateResources as $resource => $actions) {

@@ -27,3 +27,27 @@ ul.pagination{
     color: #FFF;
   }
 }
+
+.btnLink{
+  color:#008cba;
+  line-height: inherit;
+  border:none;
+  background: none;
+  cursor: pointer;
+
+  &:hover, &:focus{
+    color:#0078a0;
+  }
+}
+
+input[type="checkbox"].pushChckBtn{
+  margin-top:10px;
+}
+
+.linkTxt{
+  cursor: pointer;
+}
+
+.hideTxt{
+  display:none;
+}

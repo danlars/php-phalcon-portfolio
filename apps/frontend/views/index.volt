@@ -11,7 +11,6 @@
 </head>
 <body>
 {{ content() }}
-{{ javascript_include('js/vendor/jquery.js') }}
 {{ javascript_include('js/foundation.min.js') }}
 <script>
     $(document).foundation();

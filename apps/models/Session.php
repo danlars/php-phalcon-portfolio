@@ -12,13 +12,13 @@ use Phalcon\Mvc\Model;
 
 class Session extends Model{
 
-    public $id;
+    public $Id;
 
-    public $mail;
+    public $Mail;
 
-    public $password;
+    public $Password;
 
-    public $name;
+    public $Name;
 
-    public $active;
+    public $Active;
 }
