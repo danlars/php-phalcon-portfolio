@@ -29,7 +29,8 @@ class Security extends Plugin
 
         //throw new \Exception("something");
 
-        if (!isset($this->persistent->acl)) {
+        //if (!isset($this->persistent->acl)) {
+        if (1 == 1) {
 
             $acl = new AclList();
 
@@ -48,7 +49,7 @@ class Security extends Plugin
             //Private area resources
             $privateResources = array(
                 'frontpanel'    => array('index'),
-                'about'         => array('index'),
+                'about'         => array('index', 'editPost'),
                 'tasks'         => array('index', 'article'),
                 'contact'       => array('index', 'send', 'sentMsgs', 'delMsgs', 'editMsg', 'moveToDelete')
             );

@@ -8,6 +8,7 @@
 
 namespace Portfolio\Backend\Controllers;
 
+use Portfolio\Models\Page;
 
 class AboutController extends ControllerBase{
 
@@ -18,6 +19,19 @@ class AboutController extends ControllerBase{
 
     public function indexAction(){
 
+    }
+
+    public function editPostAction(){
+        if($this->request->isPost()){
+            if($this->request->isAjax()) {
+
+                $data = $this->request->getPost('text');
+                $model = Page::findFirst(1);
+                $model->content = $data;
+
+                $model->save();
+            }
+        }
     }
 
 }

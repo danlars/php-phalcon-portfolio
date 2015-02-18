@@ -7,6 +7,8 @@
  */
 namespace Portfolio\Frontend\Controllers;
 
+use Portfolio\Models\Page;
+
 class AboutController extends ControllerBase{
 
     public function initialize()
@@ -17,6 +19,8 @@ class AboutController extends ControllerBase{
 
     public function IndexAction()
     {
+        $model = Page::findFirst();
+        $this->view->content = $model->content;
     }
 
 }
