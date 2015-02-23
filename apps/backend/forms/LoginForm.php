@@ -30,7 +30,7 @@ class LoginForm extends Form{
         $Email->setFilters(array('striptags', 'string'));
         $Email->setAttributes(array(
             'placeholder' => 'contoso@mail.com',
-            'value'       => 'daniellarsen725@hotmail.com'
+            'value'       => 'example@example.com' //ERASE VALUE!!
         ));
         $Email->addValidators(array(
             new PresenceOf(array(
@@ -47,7 +47,7 @@ class LoginForm extends Form{
         $password->setFilters(array('striptags', 'string'));
         $password->setAttributes(array(
             'placeholder' => 'password',
-            'value'       => 'test'
+            'value'       => 'test' //ERASE VALUE!!!
         ));
         $password->addValidators(array(
             new PresenceOf(array(
