@@ -8,8 +8,9 @@
 
 namespace Portfolio\Models;
 
+use Phalcon\Mvc\Model;
 
-class PageTitle {
+class PageTitle extends Model{
 
     public $TitleID;
 

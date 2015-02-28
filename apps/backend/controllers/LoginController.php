@@ -48,7 +48,7 @@ class LoginController extends impressive{
             }
             return $this->response->redirect('admin/login/index');
         }
-        return $this->dispatcher->forward(
+        $this->dispatcher->forward(
             array(
                 'controller' => 'login',
                 'action' => 'index'

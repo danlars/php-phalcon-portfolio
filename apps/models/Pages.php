@@ -9,7 +9,9 @@
 namespace Portfolio\Models;
 
 
-class Pages {
+use Phalcon\Mvc\Model;
+
+class Pages extends Model{
 
     public $PageID;
 
