@@ -4,7 +4,7 @@ use Phalcon\Mvc\Application;
 
 define('APP_PATH', realpath('..') . '/');
 
-//TODO: få pageApi'en til at virke og få implementeret Parsedown til page siden
+//TODO: få pageApi'en til at route og få implementeret Parsedown til page siden i Backend
 
 try {
 
