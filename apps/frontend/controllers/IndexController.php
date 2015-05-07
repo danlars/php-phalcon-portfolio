@@ -7,7 +7,7 @@
  */
 namespace Portfolio\Frontend\Controllers;
 
-use Portfolio\Models\News as News;
+use Portfolio\Models\Pages as Pages;
 
 class IndexController extends ControllerBase{
 
@@ -19,10 +19,10 @@ class IndexController extends ControllerBase{
 
     public function IndexAction()
     {
-        $query = News::query()
+        $query = Pages::query()
             ->columns(array('title', 'img', 'txt'))
-            ->where("newsTitleID = 3")
-            ->orderBy("newsID DESC")
+            ->where("pageTitleID = 3")
+            ->orderBy("pageID DESC")
             ->limit(8)
             ->execute();
 

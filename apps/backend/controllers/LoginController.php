@@ -18,6 +18,11 @@ class LoginController extends impressive{
     }
 
     public function indexAction(){
+        if($this->session->get('auth')) {
+            $auth = $this->session->get('auth');
+            $this->flash->notice("Din bruger er registreret som " . $auth['name']);
+            return $this->response->redirect('/admin/frontpanel/index');
+        }
         $this->view->form = new LoginForm;
     }
 
@@ -30,30 +35,34 @@ class LoginController extends impressive{
     }
 
     public function validateAction(){
-        if($this->request->isPost()) {
-            if ($this->security->checkToken()) {
-                $email = $this->request->getPost('email');
-                $password = $this->request->getPost('password');
-                $userExist = Session::findFirst(Array('mail' => $email));
+        try{
+            if($this->request->isPost()) {
+                if ($this->security->checkToken()) {
+                    $email = $this->request->getPost('email');
+                    $password = $this->request->getPost('password');
+                    $userExist = Session::findFirst(Array('mail' => $email));
 
-                if ($userExist) {
-                    if($userExist->active == "Y" && $this->security->checkHash($password, $userExist->password)) {
-                        $this->_registerSession($userExist);
-                        $this->flash->success('Velkommen ' . $userExist->name); //The password is valid
-                        return $this->response->redirect('admin/frontpanel/index');
+                    if ($userExist && $this->security->checkHash($password, $userExist->password)) {
+                        if($userExist->active == "Y") {
+                            $this->_registerSession($userExist);
+                            $this->flash->success('Velkommen ' . $userExist->name); //The password is valid
+                            return $this->response->redirect('admin/frontpanel/index');
+                        }else
+                            $this->flash->error('Din bruger er ikke længere aktiv. Kontakt administratoren for mere info');
                     }else
-                        $this->flash->error('Din bruger er ikke længere aktiv. Kontakt administratoren for mere info');
-                }else
-                    $this->flash->error('Forkert Email/Password');
+                        $this->flash->error('Forkert Email/Password');
+                }
+                return $this->response->redirect('admin/login/index');
             }
-            return $this->response->redirect('admin/login/index');
+            $this->dispatcher->forward(
+                array(
+                    'controller' => 'login',
+                    'action' => 'index'
+                )
+            );
+        }catch (\Phalcon\Exception $e){
+            echo $e->getMessage();
         }
-        $this->dispatcher->forward(
-            array(
-                'controller' => 'login',
-                'action' => 'index'
-            )
-        );
     }
 
     /**

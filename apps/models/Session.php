@@ -1,24 +1,38 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: daniel
- * Date: 2/5/15
- * Time: 6:19 PM
- */
 
 namespace Portfolio\Models;
 
-use Phalcon\Mvc\Model;
+class Session extends \Phalcon\Mvc\Model
+{
 
-class Session extends Model{
+    /**
+     *
+     * @var integer
+     */
+    public $id;
 
-    public $Id;
+    /**
+     *
+     * @var string
+     */
+    public $mail;
 
-    public $Mail;
+    /**
+     *
+     * @var string
+     */
+    public $password;
 
-    public $Password;
+    /**
+     *
+     * @var string
+     */
+    public $name;
 
-    public $Name;
+    /**
+     *
+     * @var string
+     */
+    public $active;
 
-    public $Active;
 }

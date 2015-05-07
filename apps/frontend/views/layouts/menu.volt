@@ -4,7 +4,7 @@
             <ul class="button-group">
                 <li>{{ link_to('index/index', 'Forside', 'class' : 'button') }}</li>
                 <li>{{ link_to('tasks/index', 'Artikler', 'class' : 'button') }}</li>
-                <li>{{ link_to('about/index', 'Om mig', 'class' : 'button') }}</li>
+                {{ elements.getPages() }}
                 <li>{{ link_to('contact/index', 'Kontakt', 'class' : 'button') }}</li>
             </ul>
         </div>
@@ -39,13 +39,12 @@
         <hr/>
         <div class="row">
             <div class="large-6 medium-6 small-6 columns">
-                <p>&copy; Copyright no one at all.</p>
+                <p>&copy; Copyright by no one at all.</p>
             </div>
             <div class="large-6 medium-6 small-6 columns">
                 <ul class="inline-list right">
                     <li>{{ link_to('index/index', 'Forside') }}</li>
                     <li>{{ link_to('tasks/index', 'Opgaver') }}</li>
-                    <li>{{ link_to('about/index', 'Om mig') }}</li>
                     <li>{{ link_to('contact/index', 'Kontakt') }}</li>
                 </ul>
             </div>

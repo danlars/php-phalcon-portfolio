@@ -24,7 +24,7 @@
             <h4>{{ item.title }}</h4>
             <p>
                 {{ item.txt }}
-                {{ link_to('tasks/article/' ~ item.newsID,'Læs mere') }}
+                {{ link_to('tasks/article/' ~ item.pageID,'Læs mere') }}
             </p>
         </div>
 

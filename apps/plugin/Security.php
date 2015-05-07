@@ -49,7 +49,7 @@ class Security extends Plugin
             //Private area resources
             $privateResources = array(
                 'frontpanel'    => array('index'),
-                'about'         => array('index', 'editPost'),
+                'page'         => array('index', 'editPost'),
                 'tasks'         => array('index', 'article'),
                 'contact'       => array('index', 'send', 'sentMsgs', 'delMsgs', 'editMsg', 'moveToDelete')
             );
@@ -61,7 +61,7 @@ class Security extends Plugin
             //Public area resources
             $publicResources = array(
                 'errors'        => array('p404', 'p500'),
-                'login'         => array('index', 'end')
+                'login'         => array('index', 'end', 'validate')
             );
 
             foreach ($publicResources as $resource => $actions) {

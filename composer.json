@@ -1,12 +1,12 @@
 {
     "name": "vendor_name/package_name",
-    "description": "description_text",
-    "minimum-stability": "stable",
+    "description": "Portfolio website build under Phalcon 2.0.0 framework, and styled with the Foundation 5 css framework",
+    "minimum-stability": "alpha",
     "license": "proprietary",
     "authors": [
         {
-            "name": "author's name",
-            "email": "email@example.com"
+            "name": "Daniel Joachim Larsen",
+            "email": "daniellarsen725@hotmail.com"
         }
     ]
 }

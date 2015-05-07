@@ -1,31 +1,54 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: daniel
- * Date: 1/22/15
- * Time: 12:15 PM
- */
+
 namespace Portfolio\Models;
 
-use Phalcon\Mvc\Model;
+use Phalcon\Mvc\Model\Validator\Email as Email;
 
-class Feedback extends Model{
+class Feedback extends \Phalcon\Mvc\Model
+{
 
-    public $Id;
+    // @var integer
+    public $id;
 
-    public $FullName;
+    //@var string
+    public $fullname;
 
-    public $Email;
+    //@var string
+    public $email;
 
-    public $Tlf;
+    // @var integer
+    public $tlf;
 
-    public $Title;
+    //@var string
+    public $title;
 
-    public $Txt;
+    // @var string
+    public $txt;
 
-    public $Dato;
+    // @var string
+    public $dato;
 
-    public $Status;
+    // @var string
+    public $status;
 
-    public $DeleteDato;
+    // @var string
+    public $deletedato;
+
+    // Validations and business logic
+    public function validation()
+    {
+
+        $this->validate(
+            new Email(
+                array(
+                    'field'    => 'email',
+                    'required' => true,
+                )
+            )
+        );
+        if ($this->validationHasFailed() == true) {
+            return false;
+        }
+    }
+
 }

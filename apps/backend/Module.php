@@ -14,12 +14,16 @@ use Phalcon\Loader,
     Phalcon\Mvc\ModuleDefinitionInterface,
     Phalcon\Events\Manager as EventsManager;
 
+use Phalcon\Mvc\Micro;
 use Portfolio\Security\NotFoundPlugin;
 use Portfolio\Security\Security;
 
 class Module implements ModuleDefinitionInterface{
 
-    public function registerAutoloaders()
+    /**
+     * @param \Phalcon\DiInterface $dependencyInjector
+     */
+    public function registerAutoloaders(\Phalcon\DiInterface $dependencyInjector = null)
     {
 
         $loader = new Loader();
@@ -27,16 +31,22 @@ class Module implements ModuleDefinitionInterface{
         $loader->registerNamespaces(
             array(
                 'Portfolio\Backend\Controllers'    => APP_PATH . 'apps/backend/controllers/',
+                'Portfolio\Backend\Api'            => APP_PATH . 'apps/backend/api/',
                 'Portfolio\Models'                 => APP_PATH . 'apps/models/',
                 'Portfolio\Backend\Forms'          => APP_PATH . 'apps/backend/forms/',
                 'Portfolio\Security'               => APP_PATH . 'apps/plugin/',
+                'Portfolio\Markdown'               => APP_PATH . 'apps/backend/MarkdownPlugin',
             )
         );
+
+        $loader->registerDirs(array(
+            APP_PATH . 'apps/elements/'
+        ));
 
         $loader->register();
     }
 
-    public function registerServices($di)
+    public function registerServices(\Phalcon\DiInterface $di) //DependencyInjector
     {
 
         //Registering a dispatcher

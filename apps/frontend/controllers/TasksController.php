@@ -8,8 +8,8 @@
 namespace Portfolio\Frontend\Controllers;
 
 use Phalcon\Paginator\Adapter\Model as Paginator;
-use Portfolio\Models\News as News;
-use Portfolio\Models\NewsTitle as NewsTitle;
+use Portfolio\Models\Pages as Pages;
+use Portfolio\Models\PageTitle as PageTitle;
 
 
 class tasksController extends ControllerBase{
@@ -17,15 +17,17 @@ class tasksController extends ControllerBase{
     public function initialize(){
         $this->tag->setTitle("Opgaver");
         parent::initialize();
+        $this->view->newsTitle = PageTitle::find("page = 'N'");
     }
 
     public function indexAction($id = NULL){
         $idParts = explode('?', $id);
         $currentPage = $this->request->getQuery('page', 'int');
+
         if($idParts[0] == "") {
-            $news = News::find();
+            $news = Pages::find();
         }else{
-            $news = News::find("newsTitleID = " . $idParts[0]);
+            $news = Pages::find("pageTitleID = " . $idParts[0]);
         }
 
         $paginator = new Paginator(
@@ -36,22 +38,18 @@ class tasksController extends ControllerBase{
             )
         );
 
-        $this->view->newsTitle = NewsTitle::find();
         $this->view->page = $paginator->getPaginate();
         $this->view->pageID = (int)$idParts[0];
     }
 
     public function articleAction($id = 0){
-        $query = News::query()
-            ->columns(array("newsID", "title", "img"))
-            ->where("newsID != :id:")
-            ->bind(array("id" => $id))
-            ->limit(4)
-            ->orderBy("rand()")
-            ->execute();
+        $query = $this->modelsManager->executeQuery(
+            "SELECT B.pageID, B.img, B.title FROM Portfolio\Models\PageTitle AS A
+RIGHT OUTER JOIN Portfolio\Models\Pages AS B ON A.titleID = B.pageTitleID
+WHERE A.page = 'N' AND B.pageID != :id: ORDER BY RAND() LIMIT 4",
+            array('id' => $id));
 
         $this->view->articles = $query;
-        $this->view->newsArticle = News::findFirst($id);
-        $this->view->newsTitle = NewsTitle::find();
+        $this->view->newsArticle = Pages::findFirst($id);
     }
 }

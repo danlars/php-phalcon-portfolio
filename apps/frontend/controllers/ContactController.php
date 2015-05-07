@@ -49,7 +49,7 @@ class ContactController extends ControllerBase{
 
         $form->clear();
 
-        $this->flash->success("Formen er sendt, Jeg takker for din feedback");
+        $this->flash->success("Formen er sendt, tak for din feedback");
         return $this->response->redirect('contact/index');
     }
 }

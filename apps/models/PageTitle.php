@@ -1,21 +1,33 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Daniel
- * Date: 23-02-2015
- * Time: 07:32
- */
 
 namespace Portfolio\Models;
 
-use Phalcon\Mvc\Model;
+class PageTitle extends \Phalcon\Mvc\Model
+{
 
-class PageTitle extends Model{
+    /**
+     *
+     * @var integer
+     */
+    public $titleID;
 
-    public $TitleID;
+    /**
+     *
+     * @var string
+     */
+    public $title;
 
-    public $Title;
+    /**
+     *
+     * @var string
+     */
+    public $page;
 
-    public $Page;
-
+    /**
+     * Initialize method for model.
+     */
+    public function initialize()
+    {
+        $this->hasMany('titleID', 'Portfolio\Models\Pages', 'pageTitleID', array('alias' => 'pages'));
+    }
 }

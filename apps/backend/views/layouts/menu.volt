@@ -4,7 +4,7 @@
             <ul class="button-group">
                 <li>{{ link_to('admin/frontpanel/index', 'Panel', 'class' : 'button') }}</li>
                 <li>{{ link_to('admin/tasks/index', 'Opgaver', 'class' : 'button') }}</li>
-                <li>{{ link_to('admin/about/index', 'Om mig', 'class' : 'button') }}</li>
+                {{ elements.getPages("/admin") }}
                 <li>{{ link_to('admin/contact/index', 'Anmeldelser', 'class' : 'button') }}</li>
                 <li>{{ link_to('admin/login/end', 'Log ud', 'class' : 'button') }}</li>
             </ul>
@@ -40,13 +40,12 @@
         <hr/>
         <div class="row">
             <div class="large-6 medium-6 small-6 columns">
-                <p>&copy; Copyright no one at all.</p>
+                <p>&copy; Copyright by no one at all.</p>
             </div>
             <div class="large-6 medium-6 small-6 columns">
                 <ul class="inline-list right">
                     <li>{{ link_to('admin/frontpanel/index', 'Panel') }}</li>
                     <li>{{ link_to('admin/tasks/index', 'Opgaver') }}</li>
-                    <li>{{ link_to('admin/about/index', 'Om mig') }}</li>
                     <li>{{ link_to('admin/contact/index', 'Anmeldelser') }}</li>
                     <li>{{ link_to('admin/login/end', 'Log ud') }}</li>
                 </ul>

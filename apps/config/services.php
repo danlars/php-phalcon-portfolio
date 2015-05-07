@@ -23,7 +23,7 @@ $di->set('db', function(){
         "port" => 3306,
         "charset" => "utf8",
         "username" => "portfolio",
-        "password" => "test",
+        "password" => "mf533Ocj",
         "dbname"   => "portfolio"
     ));
 });
@@ -66,6 +66,10 @@ $di->set('session', function() {
     return $session;
 });
 
+$di->set('modelsManager', function() {
+    return new Phalcon\Mvc\Model\Manager();
+});
+
 /**
  * Register the flash service with custom CSS classes
  */
@@ -75,4 +79,8 @@ $di->set('flash', function(){
         'success' => 'alert-box success radius',
         'notice'  => 'alert-box info radius'
     ));
+});
+
+$di->set('elements', function(){
+    return new Elements();
 });

@@ -1,26 +1,46 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Daniel
- * Date: 23-02-2015
- * Time: 07:32
- */
 
 namespace Portfolio\Models;
 
+class Pages extends \Phalcon\Mvc\Model
+{
 
-use Phalcon\Mvc\Model;
+    /**
+     *
+     * @var integer
+     */
+    public $pageID;
 
-class Pages extends Model{
+    /**
+     *
+     * @var string
+     */
+    public $title;
 
-    public $PageID;
+    /**
+     *
+     * @var string
+     */
+    public $txt;
 
-    public $Title;
+    /**
+     *
+     * @var string
+     */
+    public $img;
 
-    public $Txt;
+    /**
+     *
+     * @var integer
+     */
+    public $pageTitleID;
 
-    public $Img;
-
-    public $PageTitleID;
+    /**
+     * Initialize method for model.
+     */
+    public function initialize()
+    {
+        $this->belongsTo('pageTitleID', 'Portfolio\Models\PageTitle', 'titleID', array('alias' => 'PageTitle'));
+    }
 
 }

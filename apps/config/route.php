@@ -34,4 +34,12 @@ use Phalcon\Mvc\Router;
         )
     );
 
+    $router->addGet(
+        "/admin/pageApi/:action",
+        array(
+            "module"     => "Backend",
+            "controller" => "pageApi",
+            "action"     => 0
+        ));
+
     return $router;

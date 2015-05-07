@@ -8,8 +8,7 @@
 
 namespace Portfolio\Frontend;
 
-use Phalcon\Loader,
-    Phalcon\Mvc\View,
+use Phalcon\Mvc\View,
     Phalcon\Mvc\Dispatcher,
     Phalcon\Mvc\ModuleDefinitionInterface,
     Phalcon\Events\Manager as EventsManager;
@@ -17,10 +16,10 @@ use Portfolio\Security\NotFoundPlugin;
 
 class Module implements ModuleDefinitionInterface{
 
-    public function registerAutoloaders()
+    public function registerAutoloaders(\Phalcon\DiInterface $dependencyInjector = null)
     {
 
-        $loader = new Loader();
+        $loader = new \Phalcon\Loader();
 
         $loader->registerNamespaces(
             array(
@@ -31,10 +30,15 @@ class Module implements ModuleDefinitionInterface{
             )
         );
 
+        $loader->registerDirs(array(
+            APP_PATH . 'apps/elements/'
+        ));
+
         $loader->register();
+
     }
 
-    public function registerServices($di)
+    public function registerServices(\Phalcon\DiInterface $di) //DependencyInjector
     {
 
         //Registering a dispatcher

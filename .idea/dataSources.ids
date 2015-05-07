@@ -1,6 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
   <data-source name="MySQL - portfolio@localhost" uuid="aabd7f4c-f7c9-41f2-ae6f-63984ebfba96">
-    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+    <database-info product="MySQL" version="5.6.24" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
+    <schema name="" catalog="portfolio"/>
+    <table name="feedback" schema="" catalog="portfolio" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="fullname" sqlType="VARCHAR" precision="60" scale="0" nullable="false" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12" remarks="RW1haWwgZXIgcMOla3LDpnZldCwgZm9yZGkgdmkgZ2VybmUgdmlsIGt1bm5lIGhhdmUgbXVsaWdoZWQgZm9yIGF0IHNrcml2ZSB0aWxiYWdlLCB0aWwgZm9say4="/>
+      <column name="tlf" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" remarks="dGVsZWZvbm51bW1lci4KCklra2UgZXQga3Jhdg=="/>
+      <column name="title" sqlType="VARCHAR" precision="60" scale="0" nullable="false" jdbcType="12" remarks="T3ZlcnNrcmlmdA=="/>
+      <column name="txt" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1" remarks="QmVza3JpdmVsc2UgYWYgcm9zL3Byb2JsZW0="/>
+      <column name="dato" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93" remarks="SHZvcm7DpXIgYmVza2VkZW4gYmxldiBzYXQgaW5k"/>
+      <column name="status" sqlType="CHAR" precision="1" scale="0" nullable="true" jdbcType="1" def="J04n" remarks="WSBlbGxlciBOLgoKY2hlY2tlciBvbSBiZXNrZWRlbiBlciBibGV2ZXQgc2V0Lg=="/>
+      <column name="deletedato" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93" remarks="SHZvcm7DpXIgYmVza2VkZW4gc2thbCBzbGV0dGUuCk5VTEwgZm9yIGlra2UgYXQgc2xldHRlIGJlc2tlZGVu"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="id_UNIQUE" unique="true" columns="id"/>
+      <index name="dato_INDEX" unique="false" columns="dato"/>
+    </table>
+    <table name="page_title" schema="" catalog="portfolio" type="TABLE">
+      <column name="titleID" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="title" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="page" sqlType="CHAR" precision="1" scale="0" nullable="true" jdbcType="1" def="J04n" remarks="RXIgZGV0IGVuIHNpZGUsIGVsbGVyIHRpbGjDuHJlciBkZXQgbnloZWRzaW5kbMOmZ2dldA=="/>
+      <primary-key name="PRIMARY" columns="titleID"/>
+      <exported-key name="fk_news_1" table="pages" schema="" catalog="portfolio" columns="pageTitleID"/>
+      <index name="title_UNIQUE" unique="true" columns="title"/>
+      <index name="titleID_UNIQUE" unique="true" columns="titleID"/>
+      <index name="title_INDEX" unique="false" columns="title"/>
+    </table>
+    <table name="pages" schema="" catalog="portfolio" type="TABLE">
+      <column name="pageID" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="title" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="txt" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="img" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="pageTitleID" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="pageID"/>
+      <foreign-key name="fk_news_1" columns="pageTitleID" ref-table="page_title" ref-schema="" ref-catalog="portfolio" ref-columns="titleID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="img_UNIQUE" unique="true" columns="img"/>
+      <index name="newsID_UNIQUE" unique="true" columns="pageID"/>
+      <index name="title_UNIQUE" unique="true" columns="title"/>
+      <index name="newsTitleID_INDEX" unique="false" columns="pageTitleID"/>
+    </table>
+    <table name="responsemail" schema="" catalog="portfolio" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" remarks="U2VuZHRlIGJlc2tlZGVyIHRpbCBmb2xrLCBzb20gYnJ1Z3RlIHRpZCBww6UsIGF0IGdpdmUgZmVlZGJhY2sgdGlsIHNpZGVuLg=="/>
+      <column name="fullname" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="title" sqlType="VARCHAR" precision="60" scale="0" nullable="false" jdbcType="12"/>
+      <column name="txt" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="dato" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="id_UNIQUE" unique="true" columns="id"/>
+      <index name="email_INDEX" unique="false" columns="email"/>
+    </table>
+    <table name="session" schema="" catalog="portfolio" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="mail" sqlType="VARCHAR" precision="70" scale="0" nullable="false" jdbcType="12"/>
+      <column name="password" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="name" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="active" sqlType="CHAR" precision="1" scale="0" nullable="false" jdbcType="1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="mail_UNIQUE" unique="true" columns="mail"/>
+    </table>
   </data-source>
 </component>
