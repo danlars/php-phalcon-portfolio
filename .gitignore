@@ -1,0 +1,22 @@
+# Dev files #
+#############
+.idea
+
+# Local files #
+###############
+/cache/*/*
+/apps/config/config.php
+
+# External files #
+##################
+/vendor
+/bower_components
+
+# OS Files #
+############
+.DS_Store
+Thumbs.db
+
+# gitkeep #
+############
+!.gitkeep
