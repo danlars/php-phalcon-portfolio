@@ -5,6 +5,7 @@ use Phalcon\Mvc\Router;
     $router = new Router();
 
     $router->setDefaultModule("Frontend");
+    $router->setDefaultAction("index");
 
     $router->add(
         '/:controller/:action/:params',
@@ -16,7 +17,7 @@ use Phalcon\Mvc\Router;
     );
 
     $router->add(
-        "/admin/",
+        "/admin[/]{0,1}",
         array(
             "module"     => "Backend",
             "controller" => "login",
@@ -34,12 +35,13 @@ use Phalcon\Mvc\Router;
         )
     );
 
-    $router->addGet(
-        "/admin/pageApi/:action",
+    $router->addGet("/admin/PageApi/:action/([1-9]+)",
         array(
             "module"     => "Backend",
-            "controller" => "pageApi",
-            "action"     => 0
+            "namespace"  => "Portfolio\\Backend\\Api",
+            "controller" => "page_api",
+            "action"     => 1,
+            "id"     => 2
         ));
 
     return $router;

@@ -49,9 +49,10 @@ class Security extends Plugin
             //Private area resources
             $privateResources = array(
                 'frontpanel'    => array('index'),
-                'page'         => array('index', 'editPost'),
+                'page'          => array('index', 'editPost'),
                 'tasks'         => array('index', 'article'),
-                'contact'       => array('index', 'send', 'sentMsgs', 'delMsgs', 'editMsg', 'moveToDelete')
+                'contact'       => array('index', 'send', 'sentMsgs', 'delMsgs', 'editMsg', 'moveToDelete'),
+                'page_api'       => array('get', 'put', 'delete'),
             );
 
             foreach ($privateResources as $resource => $actions) {

@@ -48,7 +48,7 @@
                                 {% endif %}
                             </h4>
                         </div>
-                        <span class="hideTxt">
+                        <span class="hider">
                             <div class="large-12 medium-12 small-12 columns">
                                 <h5 class="subheader">
                                     {{ item.title }}

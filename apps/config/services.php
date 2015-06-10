@@ -28,6 +28,11 @@ $di->set('db', function(){
     ));
 });
 
+$di->set('view', function(){
+    $view = new \Phalcon\Mvc\View();
+    return $view;
+});
+
 /**
  * Setting up volt
  */
@@ -45,7 +50,7 @@ $di->set('volt', function($view, $di) {
     return $volt;
 }, true);
 
-// Setup a base URI so that all generated URIs include the "tutorial" folder
+// Setup a base URI so that all generated URIs include the "public" folder
 $di['url'] = function() {
     $url = new Url();
     $url->setBaseUri('/');

@@ -30,17 +30,17 @@ class Module implements ModuleDefinitionInterface{
 
         $loader->registerNamespaces(
             array(
-                'Portfolio\Backend\Controllers'    => APP_PATH . 'apps/backend/controllers/',
-                'Portfolio\Backend\Api'            => APP_PATH . 'apps/backend/api/',
-                'Portfolio\Models'                 => APP_PATH . 'apps/models/',
-                'Portfolio\Backend\Forms'          => APP_PATH . 'apps/backend/forms/',
-                'Portfolio\Security'               => APP_PATH . 'apps/plugin/',
-                'Portfolio\Markdown'               => APP_PATH . 'apps/backend/MarkdownPlugin',
+                'Portfolio\Backend\Controllers' => APP_PATH . 'apps/backend/controllers/',
+                'Portfolio\Backend\Api'         => APP_PATH . 'apps/backend/api/',
+                'Portfolio\Models'              => APP_PATH . 'apps/models/',
+                'Portfolio\Backend\Forms'       => APP_PATH . 'apps/backend/forms/',
+                'Portfolio\Security'            => APP_PATH . 'apps/plugin/',
+                'Portfolio\Markdown'            => APP_PATH . 'apps/backend/MarkdownPlugin',
             )
         );
 
         $loader->registerDirs(array(
-            APP_PATH . 'apps/elements/'
+            APP_PATH . 'apps/elements/',
         ));
 
         $loader->register();

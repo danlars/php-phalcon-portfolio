@@ -8,21 +8,11 @@
     {{ stylesheet_link('css/foundation.min.css') }}
     {{ stylesheet_link('css/style.css') }}
     {{ javascript_include('js/vendor/modernizr.js') }}
+    {{ javascript_include('js/vendor/jquery.js') }}
+    {{ javascript_include('js/foundation.min.js') }}
 </head>
 <body>
 {{ content() }}
-{{ javascript_include('js/vendor/jquery.js') }}
-{{ javascript_include('js/foundation.min.js') }}
-<script>
-    $(document).foundation();
-    $(".linkTxt").on('click', function(){
-        $(this).closest(".large-12").find(".hideTxt").toggle();
-    });
 
-    $(".notRead").on('click', function(){
-        $.get('editMsg/' + $(this).attr('data'));
-        $(this).contents().unwrap()
-    });
-</script>
 </body>
 </html>

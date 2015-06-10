@@ -34,6 +34,11 @@ class Feedback extends \Phalcon\Mvc\Model
     // @var string
     public $deletedato;
 
+    //convert string to date
+    public function afterFetch(){
+        $this->dato = date('d-m-Y H:i', strtotime($this->dato));
+    }
+
     // Validations and business logic
     public function validation()
     {
