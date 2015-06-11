@@ -12,7 +12,7 @@ $di = new FactoryDefault();
 
 //Routes
 $di->set('router', function(){
-    require APP_PATH . 'apps/config/route.php';
+    require BASE_PATH . 'apps/config/route.php';
     return $router;
 });
 
@@ -28,6 +28,7 @@ $di->set('db', function(){
     ));
 });
 
+
 $di->set('view', function(){
     $view = new \Phalcon\Mvc\View();
     return $view;
@@ -41,7 +42,7 @@ $di->set('volt', function($view, $di) {
     $volt = new VoltEngine($view, $di);
 
     $volt->setOptions(array(
-        "compiledPath" => APP_PATH . "cache/volt/"
+        "compiledPath" => BASE_PATH . "cache/volt/"
     ));
 
     $compiler = $volt->getCompiler();
@@ -51,16 +52,16 @@ $di->set('volt', function($view, $di) {
 }, true);
 
 // Setup a base URI so that all generated URIs include the "public" folder
-$di['url'] = function() {
+$di->set('url', function(){
     $url = new Url();
     $url->setBaseUri('/');
     return $url;
-};
+});
 
 // Setup the tag helpers
-$di['tag'] = function() {
+$di->set('tag', function() {
     return new Tag();
-};
+});
 
 /**
  * Start the session the first time some component request the session service

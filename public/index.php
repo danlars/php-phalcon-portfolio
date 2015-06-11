@@ -2,13 +2,13 @@
 error_reporting(E_ALL);
 use Phalcon\Mvc\Application;
 
-define('APP_PATH', realpath('..') . '/');
+define('BASE_PATH', realpath('..') . '/');
 
 //TODO: få pageApi'en til at route og få implementeret Parsedown til page siden i Backend
 
 try {
 
-    require APP_PATH . 'apps/config/services.php';
+    require BASE_PATH . 'apps/config/services.php';
 
     //Create an application
     $application = new Application($di);
@@ -18,11 +18,11 @@ try {
         array(
             'Frontend' => array(
                 'className' => 'Portfolio\Frontend\Module',
-                'path'      => APP_PATH . 'apps/frontend/Module.php'
+                'path'      => BASE_PATH . 'apps/frontend/Module.php'
             ),
             'Backend'  => array(
                 'className' => 'Portfolio\Backend\Module',
-                'path'      => APP_PATH . 'apps/backend/Module.php'
+                'path'      => BASE_PATH . 'apps/backend/Module.php'
             )
         )
     );

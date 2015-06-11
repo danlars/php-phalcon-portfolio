@@ -30,17 +30,17 @@ class Module implements ModuleDefinitionInterface{
 
         $loader->registerNamespaces(
             array(
-                'Portfolio\Backend\Controllers' => APP_PATH . 'apps/backend/controllers/',
-                'Portfolio\Backend\Api'         => APP_PATH . 'apps/backend/api/',
-                'Portfolio\Models'              => APP_PATH . 'apps/models/',
-                'Portfolio\Backend\Forms'       => APP_PATH . 'apps/backend/forms/',
-                'Portfolio\Security'            => APP_PATH . 'apps/plugin/',
-                'Portfolio\Markdown'            => APP_PATH . 'apps/backend/MarkdownPlugin',
+                'Portfolio\Backend\Controllers' => BASE_PATH . 'apps/backend/controllers/',
+                'Portfolio\Backend\Api'         => BASE_PATH . 'apps/backend/api/',
+                'Portfolio\Models'              => BASE_PATH . 'apps/models/',
+                'Portfolio\Backend\Forms'       => BASE_PATH . 'apps/backend/forms/',
+                'Portfolio\Security'            => BASE_PATH . 'apps/plugin/',
+                'Portfolio\Markdown'            => BASE_PATH . 'apps/backend/MarkdownPlugin',
             )
         );
 
         $loader->registerDirs(array(
-            APP_PATH . 'apps/elements/',
+            BASE_PATH . 'apps/elements/',
         ));
 
         $loader->register();
@@ -71,7 +71,7 @@ class Module implements ModuleDefinitionInterface{
         //Registering the view component
         $di->set('view', function() {
             $view = new View();
-            $view->setViewsDir(APP_PATH . 'apps/backend/views/');
+            $view->setViewsDir(BASE_PATH . 'apps/backend/views/');
             $view->registerEngines(array(
                 ".volt" => 'volt'
             ));

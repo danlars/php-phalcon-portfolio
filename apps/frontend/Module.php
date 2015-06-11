@@ -23,15 +23,15 @@ class Module implements ModuleDefinitionInterface{
 
         $loader->registerNamespaces(
             array(
-                'Portfolio\Frontend\Controllers'    => APP_PATH . 'apps/frontend/controllers/',
-                'Portfolio\Models'                  => APP_PATH . 'apps/models/',
-                'Portfolio\Frontend\Forms'          => APP_PATH . 'apps/frontend/forms/',
-                'Portfolio\Security'                => APP_PATH . 'apps/plugin/',
+                'Portfolio\Frontend\Controllers'    => BASE_PATH . 'apps/frontend/controllers/',
+                'Portfolio\Models'                  => BASE_PATH . 'apps/models/',
+                'Portfolio\Frontend\Forms'          => BASE_PATH . 'apps/frontend/forms/',
+                'Portfolio\Security'                => BASE_PATH . 'apps/plugin/',
             )
         );
 
         $loader->registerDirs(array(
-            APP_PATH . 'apps/elements/'
+            BASE_PATH . 'apps/elements/'
         ));
 
         $loader->register();
@@ -59,7 +59,7 @@ class Module implements ModuleDefinitionInterface{
         //Registering the view component
         $di->set('view', function() {
             $view = new View();
-            $view->setViewsDir(APP_PATH . 'apps/frontend/views/');
+            $view->setViewsDir(BASE_PATH . 'apps/frontend/views/');
             $view->registerEngines(array(
                 ".volt" => 'volt'
             ));
